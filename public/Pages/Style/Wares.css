@@ -1,0 +1,104 @@
+body {
+    background-image: url('/-CS3_2ndQtrPortfolio_StrontiumMallari/public/Pages/Images/Booklet.webp');
+    background-attachment: scroll;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: black;
+    overflow-y: scroll;
+}
+img {
+    display: block;          
+    margin-left: 300px;
+    width: 1000px;    
+    height: 350px; 
+}
+.hotbar ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #710404; 
+}
+
+.hotbar li {
+    float: left; 
+}
+
+.hotbar li a {
+    display: block; 
+    color: white;
+    text-align: center;
+    padding: 14px 16px; 
+    text-decoration: none; 
+}
+
+
+.hotbar li a:hover {
+    background-color: #3f0505;
+}
+
+#Map {
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 120px;
+    width: 350px;
+    margin-left: 730px;
+    margin-top: 228px;
+}
+
+.container {
+  display: flex; 
+  gap: 10px; 
+  justify-content: space-between;
+}
+.container2 {
+  display: flex; 
+  gap: 10px; 
+  justify-content: space-between;
+}
+#Dice {
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 70px;
+    width: 220px;
+    margin-left: 252px;
+    margin-top: 335px;
+}
+#Book {
+    transform: translate(-50%, -50%); 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 90px;
+    width: 280px;
+    margin-top: 360px; 
+}
+#Sheet {
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 70px;
+    width: 280px;
+
+}
+#Statues {
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 80px;
+    width: 220px;
+    margin-left: 252px;
+    margin-bottom: 100px;
+}

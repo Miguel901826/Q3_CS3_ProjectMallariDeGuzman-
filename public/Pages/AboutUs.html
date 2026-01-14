@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #moreText {
+      display: none;
+      margin-top: 15px;
+    }
+
+    .team {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .member {
+      background-color: white;
+      padding: 20px;
+      width: 150px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .member:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>About Us</h1>
+    <p>Integrity • Excellence • Service</p>
+  </header>
+
+  <section>
+    <h2>Who We Are</h2>
+    <p>
+      We are a pair of students that love doing games particularly Dnd
+    </p>
+
+    <button id="readMoreBtn">Read More</button>
+
+    <p id="moreText">
+      Our goal is to create a website that would make other Dnd enjoyers and players have easier
+      access on what they need for a DND session. This website also include mini games(gambling,but not really) 
+      to let our users have fun using this site.
+    </p>
+  </section>
+
+  <section>
+    <h2>Meet the Team</h2>
+
+    <div class="team">
+      <div class="member" onclick="showInfo('Joshua')">Joshua</div>
+      <div class="member" onclick="showInfo('Luis')">Luis</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Our Team | All Rights Reserved Lol</p>
+  </footer>
+
+  <script>
+    const readMoreBtn = document.getElementById("readMoreBtn");
+    const moreText = document.getElementById("moreText");
+
+    readMoreBtn.addEventListener("click", function () {
+      if (moreText.style.display === "none") {
+        moreText.style.display = "block";
+        readMoreBtn.textContent = "Read Less";
+      } else {
+        moreText.style.display = "none";
+        readMoreBtn.textContent = "Read More";
+      }
+    });
+
+    function showInfo(name) {
+      alert("Hello! I’m " + name + " and I’m part of the team.");
+    }
+
+    window.onload = function () {
+      document.body.style.opacity = 0;
+      document.body.style.transition = "opacity 1.5s";
+      document.body.style.opacity = 1;
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+body {
+    background-image: url('/-CS3_2ndQtrPortfolio_StrontiumMallari/public/Pages/Images/HelpScreen.png');
+    background-attachment: scroll;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: black;
+}
+img {
+    display: block;          
+    margin-left: 300px;
+    width: 1000px;    
+    height: 350px; 
+}
+.hotbar ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #710404; 
+}
+
+.hotbar li {
+    float: left; 
+}
+
+.hotbar li a {
+    display: block; 
+    color: white;
+    text-align: center;
+    padding: 14px 16px; 
+    text-decoration: none; 
+}
+
+
+.hotbar li a:hover {
+    background-color: #3f0505;
+}
+
+#AU {
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    transform: translate(-50%, -50%);
+    background-color: rgb(140, 184, 232);
+    border: black;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 500px;
+    width: 500px;
+    margin-left: 300px;
+    margin-top: 350px;
+}
