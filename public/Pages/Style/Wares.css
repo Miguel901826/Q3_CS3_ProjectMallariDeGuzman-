@@ -46,8 +46,8 @@ img {
     border-radius: 5px;
     height: 120px;
     width: 350px;
-    margin-left: 730px;
-    margin-top: 228px;
+    margin-left: 48.5%;
+    margin-top: 15%;
 }
 
 .container {
@@ -68,8 +68,8 @@ img {
     border-radius: 5px;
     height: 70px;
     width: 220px;
-    margin-left: 252px;
-    margin-top: 335px;
+    margin-left: 17%;
+    margin-top: 22%;
 }
 #Book {
     transform: translate(-50%, -50%); 
@@ -79,21 +79,22 @@ img {
     border-radius: 5px;
     height: 90px;
     width: 280px;
-    margin-top: 360px; 
+    margin-top: 24%; 
 }
 #Sheet {
     transform: translate(-50%, -50%);
-    background-color: transparent;
+    background-color: blue;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     height: 70px;
     width: 280px;
-
+    margin-left: 15%;
+    margin-bottom: 40%;
 }
 #Statues {
     transform: translate(-50%, -50%);
-    background-color: transparent;
+    background-color: blue;
     border: none;
     cursor: pointer;
     border-radius: 5px;
