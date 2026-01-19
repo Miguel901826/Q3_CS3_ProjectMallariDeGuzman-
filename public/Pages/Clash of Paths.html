@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rock Paper Scissors Glow</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game {
+    background: #2b2b2b;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.hands {
+    display: flex;
+    justify-content: space-between;
+    font-size: 80px;
+    margin: 20px 0;
+}
+
+.hand {
+    transition: transform 0.3s;
+}
+
+.shake {
+    animation: shake 0.6s;
+}
+
+@keyframes shake {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-20px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.win {
+    box-shadow: 0 0 25px #00e676, 0 0 50px #00e676;
+}
+
+.lose {
+    box-shadow: 0 0 25px #ff1744, 0 0 50px #ff1744;
+}
+
+.tie {
+    box-shadow: 0 0 25px #ffeb3b, 0 0 50px #ffeb3b;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 16px;
+    padding: 12px;
+    width: 110px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.rock { background: #ff5252; }
+.paper { background: #42a5f5; }
+.scissors { background: #66bb6a; }
+
+.result {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.score {
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="game" id="gameBox">
+    <h2>The Clash of Paths</h2>
+
+    <div class="hands">
+        <div class="hand" id="userHand">🎴</div>
+        <div class="hand" id="computerHand">🎴</div>
+    </div>
+
+    <div class="buttons">
+        <button class="mage" onclick="play('mage')">Mage</button>
+        <button class="rogue" onclick="play('rogue')">Rogue</button>
+        <button class="knight" onclick="play('knight')">Knight</button>
+    </div>
+
+    <div class="result" id="result">Make your move!</div>
+    <div class="score" id="score">You: 0 | Computer: 0</div>
+</div>
+
+<script>
+let userScore = 0;
+let computerScore = 0;
+
+const userHand = document.getElementById("userHand");
+const computerHand = document.getElementById("computerHand");
+const gameBox = document.getElementById("gameBox");
+
+const emojis = {
+    knight: "🛡️️",
+    rogue: "🗡️",
+    mage: "☄️"
+};
+
+function play(userChoice) {
+    const choices = ["mage", "rogue", "knight"];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+    gameBox.classList.remove("win", "lose", "tie");
+
+    userHand.classList.add("shake");
+    computerHand.classList.add("shake");
+
+    userHand.textContent = "🎴";
+    computerHand.textContent = "🎴";
+
+    setTimeout(() => {
+        userHand.classList.remove("shake");
+        computerHand.classList.remove("shake");
+
+        userHand.textContent = emojis[userChoice];
+        computerHand.textContent = emojis[computerChoice];
+
+        let resultText = "";
+
+        if (userChoice === computerChoice) {
+            resultText = "🤝 It's a tie!";
+            gameBox.classList.add("tie");
+        } 
+        else if (
+            (userChoice === "mage" && computerChoice === "knight") ||
+            (userChoice === "rogue" && computerChoice === "mage") ||
+            (userChoice === "knight" && computerChoice === "rogue")
+        ) {
+            resultText = "🎉 You win!";
+            userScore++;
+            gameBox.classList.add("win");
+        } 
+        else {
+            resultText = "💀 You lose!";
+            computerScore++;
+            gameBox.classList.add("lose");
+        }
+
+        document.getElementById("result").innerText = resultText;
+        document.getElementById("score").innerText = 
+            "You: " + userScore + " | Computer: " + computerScore;
+
+    }, 600);
+}
+</script>
+
+</body>
+</html>
