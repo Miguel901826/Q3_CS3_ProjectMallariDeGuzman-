@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navigation Bar</title>
+<style>
+    /* Reset default margins and paddings */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Navbar container */
+    nav {
+        background-color: #333;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Navbar list */
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    /* Navbar items */
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    /* Navbar links */
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        display: block;
+        transition: background 0.3s ease;
+    }
+
+    /* Hover effect */
+    nav ul li a:hover {
+        background-color: #575757;
+        border-radius: 4px;
+    }
+
+    /* Responsive: Stack items on small screens */
+    @media (max-width: 600px) {
+        nav ul {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Page Content -->
+<section style="padding: 20px;">
+    <h1>Welcome to My Website</h1>
+    <p>This is a sample page with a responsive navigation bar.</p>
+</section>
+
+</body>
+</html>

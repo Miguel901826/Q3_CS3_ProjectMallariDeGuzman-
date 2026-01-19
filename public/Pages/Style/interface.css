@@ -1,19 +1,10 @@
 body {
-    background-image: url('Backdrops/Cavern_Backdrop.png');
+    background-image: url('Backdrops/IntroScreen.png');
     background-attachment: scroll;
     background-position: top center;
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: black;
-}
-img {
-    display: block;          
-    margin-left: 300px;
-    width: 1000px;    
-    height: 350px; 
-}
-.container {
-    display: flex;
 }
 .hotbar ul {
     list-style-type: none; 
