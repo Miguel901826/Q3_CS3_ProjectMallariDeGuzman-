@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Healing Registration</title>
+
+<style>
+    body {
+        background-image: url('Images/ScrollBackground.jpg');
+        background-attachment: fixed;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-color: black;
+        font-family: "Trebuchet MS", serif;
+        color: #f5e6c9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: rgba(20, 15, 10, 0.9);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px grey;
+        border: 2px solid #a67c3a;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ffd700;
+        letter-spacing: 2px;
+    }
+
+    fieldset {
+        border: 2px solid #a67c3a;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    legend {
+        color: #ffd700;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+
+    label {
+        display: block;
+        margin-top: 12px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: none;
+        font-size: 16px;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        box-shadow: 0 0 8px gold;
+    }
+
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        background: #a67c3a;
+        color: #140f0a;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: gold;
+    }
+
+    .error {
+        border: 2px solid red !important;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1> ✨Digital Cerics Registration 🙏️</h1>
+
+    <form method="post" action="submit" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
+
+        <fieldset>
+            <legend>Adventurer Identity</legend>
+
+            <label>
+                Full Name:
+                <input type="text" required onblur="checkEmpty(this)">
+            </label>
+
+            <label>
+                Birth Date:
+                <input type="date" required>
+            </label>
+
+            <label>
+                Email Scroll (Email):
+                <input type="email" required>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Guild Problems</legend>
+
+            <label>
+                Sending Stone (Mobile):
+                <input type="text" required onblur="checkEmpty(this)">
+            </label>
+
+            <label>
+                Problem Rank Level:
+                <select required>
+                    <option value="">-- Choose Rank --</option>
+                    <option value="Minor">Minor Bug</option>
+                    <option value="Medium">Noticable Bug</option>
+                    <option value="Extreme">Website Breaking Bug</option>
+                </select>
+            </label>
+
+            <label>
+                Preffered Speed: 
+                <input type="radio" name="path" value="fast" required> Immediate 
+                <input type="radio" name="path" value="moderate"> Can wait for a few days
+            </label>
+
+            <label>
+                Reason for Healing:
+                <select required>
+                    <option value="">-- Choose thy Reason --</option>
+                    <option value="Bugs">Bugs</option>
+                    <option value="Link Unavailable">Link Unavailable</option>
+                    <option value="Games Not Working">Games Not Working</option>
+                    <option value="Website Crashed">Website Crashed</option>
+                    <option value="Capcha Not Redirecting">Capcha Not Redirecting</option>
+                </select>
+            </label>
+
+            <label>
+                Any specific message or problems do you want to say?
+                <textarea rows="4" required onblur="checkEmpty(this)"></textarea>
+            </label>
+        </fieldset>
+
+        <div class="buttons">
+            <button type="submit">📜 Submit Oath</button>
+            <button type="reset"> Clear Form</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+function confirmSubmit() {
+    return confirm("Do you swear to submit this problem to the holy clerics?");
+}
+
+function confirmReset() {
+    return confirm("Are you sure you want to erase this scroll?");
+}
+
+function checkEmpty(el) {
+    if (el.value.trim() === "") {
+        el.classList.add("error");
+    } else {
+        el.classList.remove("error");
+    }
+}
+</script>
+
+</body>
+</html>
