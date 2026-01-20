@@ -45,8 +45,8 @@ img {
     border: black;
     cursor: pointer;
     border-radius: 5px;
-    height: 500px;
-    width: 500px;
-    margin-left: 300px;
-    margin-top: 350px;
+    height: 350px;
+    width: 400px;
+    margin-left: 20%;
+    margin-top: 20%;
 }
