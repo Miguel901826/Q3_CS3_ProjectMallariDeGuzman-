@@ -83,7 +83,7 @@ img {
 }
 #Sheet {
     transform: translate(-50%, -50%);
-    background-color: blue;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -94,7 +94,7 @@ img {
 }
 #Statues {
     transform: translate(-50%, -50%);
-    background-color: blue;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     border-radius: 5px;
