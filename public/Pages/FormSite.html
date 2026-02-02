@@ -178,10 +178,24 @@
 function confirmSubmit() {
     const should = confirm("Do you swear to submit this problem to the holy clerics?");
     if (should) {
-        saveFormToLocalStorage();
+        // Save submission under the key Abyss expects ('formData')
+        saveSubmissionToLocalStorage();
+
+        // Remove any draft so the form stays cleared on reload
+        try { localStorage.removeItem('formDraft'); } catch (e) {}
+
         const form = document.querySelector('form');
-        form.reset();
-        return true;
+        const prevOnReset = form.onreset;
+        try {
+            form.onreset = null;
+            form.reset();
+        } finally {
+            form.onreset = prevOnReset;
+        }
+
+        // Reload to show cleared form; submitted data remains in 'formData'
+        location.reload();
+        return false;
     }
     return false;
 }

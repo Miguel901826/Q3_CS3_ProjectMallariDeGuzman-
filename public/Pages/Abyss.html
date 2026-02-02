@@ -28,6 +28,9 @@
 			<div class="row"><div class="label">Full Name</div><div class="value" id="fullName">—</div></div>
 			<div class="row"><div class="label">Email</div><div class="value" id="email">—</div></div>
 			<div class="row" style="border-bottom: none;"><div class="label">Message</div><div class="value" id="message">—</div></div>
+			<div style="text-align:center; margin-top:10px;">
+				<button id="markResolved" class="btn" style="background:#bb29d5;color:#2b003b;">Mark as Resolved</button>
+			</div>
 		</div>
 	</div>
 
@@ -67,6 +70,17 @@ document.addEventListener('DOMContentLoaded', function(){
 		details.style.display = shown ? 'none' : 'block';
 		btn.textContent = shown ? 'Show Details' : 'Hide Details';
 	});
+
+	const resolveBtn = document.getElementById('markResolved');
+	if (resolveBtn) {
+		resolveBtn.addEventListener('click', function(){
+			if (!confirm('Mark this submission as resolved and delete it?')) return;
+			localStorage.removeItem('formData');
+			renderFromLocalStorage();
+			details.style.display = 'none';
+			btn.textContent = 'Show Details';
+		});
+	}
 });
 </script>
 
