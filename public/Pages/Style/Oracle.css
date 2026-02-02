@@ -1,0 +1,198 @@
+body {
+    background-image: url('Backdrops/Calling.webp');
+    background-attachment: scroll;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: black;
+}
+.backdrop-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1000px 800px;
+    font-size: 24px;
+    font-weight: bold;
+    color: transparent;
+    background-color: transparent;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.backdrop-button:hover {
+    background-color: transparent;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.backdrop-button.hidden {
+    display: none;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #dac474;
+    color: #f5e6c9;
+    font-weight: bold;
+    z-index: 999;
+}
+
+.back-btn:hover {
+    background: #ffcd16;
+}
+
+      .comments-container {
+        max-width: 800px;
+        margin: 60px auto;
+        background: rgba(20, 15, 10, 0.9);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px grey;
+        border: 2px solid #a97900;
+      }
+
+      .comments-container h2 {
+        text-align: center;
+        color: #ffcd16;
+        letter-spacing: 2px;
+        margin-top: 0;
+      }
+
+      .comment {
+        background: rgba(10, 10, 10, 0.6);
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid #a97900;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      .comment-header {
+        position: relative;
+        padding-right: 40px;
+        margin-bottom: 12px;
+      }
+
+      .delete-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 12px;
+        background: #8b1a1a;
+        color: #f5e6c9;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .delete-btn:hover {
+        background: #bb2e2e;
+      }
+
+      .comment-info {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 10px;
+      }
+
+      .comment-info-item {
+        flex: 1;
+      }
+
+      .comment-label {
+        color: #ffcd16;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .comment-value {
+        color: #f5e6c9;
+        margin-top: 4px;
+      }
+
+      .comment-message {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px;
+        border-left: 3px solid #ffcd16;
+        margin: 12px 0;
+        color: #f5e6c9;
+      }
+
+      .comment-response {
+        background: rgba(187, 71, 226, 0.1);
+        padding: 10px;
+        border-left: 3px solid #ffcd16;
+        margin: 12px 0;
+        color: #f5e6c9;
+      }
+
+      .input-section {
+        background: rgba(10, 10, 10, 0.6);
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid #a97900;
+        margin-bottom: 15px;
+      }
+
+      .input-group {
+        margin-bottom: 12px;
+      }
+
+      .input-label {
+        color: #ffcd16;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #a97900;
+        border-radius: 4px;
+        background: rgba(255, 228, 228, 0.05);
+        color: #f5e6c9;
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+
+      .input-field::placeholder {
+        color: rgba(245, 230, 201, 0.5);
+      }
+
+      .send-btn {
+        padding: 10px 16px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        background: #dac474;
+        color: #f5e6c9;
+        font-weight: bold;
+        width: 100%;
+      }
+
+      .send-btn:hover {
+        background: #ffcd16;
+      }
+
+      .no-comments {
+        text-align: center;
+        color: #ddd;
+        padding: 20px;
+      }

@@ -91,6 +91,25 @@
         background: gold;
     }
 
+    .abyss-btn {
+        background: #5b1d7d;
+        color: #000000;
+    }
+
+    .abyss-btn:hover {
+        background: #7c2ba1;
+    }
+
+    .oracle-btn {
+        background: #ffeb3b;
+        color: #ffffff;
+    }
+
+    .oracle-btn:hover {
+        background: #fff59d;
+        color: #000000;
+    }
+
     .error {
         border: 2px solid red !important;
     }
@@ -101,7 +120,10 @@
 <div class="container">
     <h1> ✨Digital Cerics Registration 🙏️</h1>
 
-    <button onclick="window.location.href='Abyss.html'" style="margin-bottom: 20px;">Go to Abyss</button>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button class="abyss-btn" onclick="window.location.href='Abyss.html'">Go to Abyss</button>
+        <button class="oracle-btn" onclick="window.location.href='Oracle.html'">Consult the Oracle</button>
+    </div>
 
     <form method="post" action="submit" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
 

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oracle - Den of Probabilities</title>
+    <link rel="icon" type="image/png" href="Images/Logo.png">
+    <link rel="stylesheet" href="Style/Oracle.css">
+  </head>
+  <body>
+    <button class="back-btn" onclick="window.location.href='FormSite.html'">← Back to Form</button>
+    <button class="backdrop-button" id="backdropButton">Change Backdrop</button>
+
+    <div class="comments-container" id="commentsContainer" style="display: none;">
+      <h2>The Oracle's Responses</h2>
+      
+      <div class="input-section">
+        <div class="input-group">
+          <label class="input-label">Full Name</label>
+          <input type="text" class="input-field" id="fullName" placeholder="Enter your full name" readonly>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Reason</label>
+          <input type="text" class="input-field" id="reason" placeholder="Why are you seeking the Oracle?" readonly>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Message</label>
+          <textarea class="input-field" id="message" placeholder="Your question or message" style="resize: vertical; min-height: 80px;" readonly></textarea>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Your Response</label>
+          <textarea class="input-field" id="response" placeholder="The Oracle's response" style="resize: vertical; min-height: 80px;"></textarea>
+        </div>
+        <button class="send-btn" id="sendBtn">Submit to the Abyss</button>
+      </div>
+
+      <div id="commentsArea"></div>
+      <div class="no-comments" id="noComments">No responses from the Oracle yet...</div>
+    </div>
+
+    <script>
+      const button = document.getElementById('backdropButton');
+      const fullNameInput = document.getElementById('fullName');
+      const reasonInput = document.getElementById('reason');
+      const messageInput = document.getElementById('message');
+      const responseInput = document.getElementById('response');
+      const sendBtn = document.getElementById('sendBtn');
+      const commentsArea = document.getElementById('commentsArea');
+      const noComments = document.getElementById('noComments');
+      const commentsContainer = document.getElementById('commentsContainer');
+
+      // Load data from FormSite submission
+      function loadFormData() {
+        const formData = JSON.parse(localStorage.getItem('formData')) || {};
+        if (formData.fullName) fullNameInput.value = formData.fullName;
+        if (formData.reason) reasonInput.value = formData.reason;
+        if (formData.message) messageInput.value = formData.message;
+      }
+
+      loadFormData();
+
+      button.addEventListener('click', function() {
+        document.body.style.backgroundImage = "url('Style/Backdrops/Revelation.webp')";
+        button.classList.add('hidden');
+        commentsContainer.style.display = 'block';
+      });
+
+      function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('oracleComments')) || [];
+        commentsArea.innerHTML = '';
+        
+        if (comments.length === 0) {
+          noComments.style.display = 'block';
+        } else {
+          noComments.style.display = 'none';
+          comments.forEach((comment, index) => {
+            const commentEl = createCommentElement(comment, index);
+            commentsArea.appendChild(commentEl);
+          });
+        }
+      }
+
+      function createCommentElement(comment, index) {
+        const div = document.createElement('div');
+        div.className = 'comment';
+        div.innerHTML = `
+          <button class="delete-btn" onclick="deleteComment(${index})">✕ Delete</button>
+          <div class="comment-header">
+            <div class="comment-info">
+              <div class="comment-info-item">
+                <div class="comment-label">Full Name</div>
+                <div class="comment-value">${comment.fullName || '—'}</div>
+              </div>
+              <div class="comment-info-item">
+                <div class="comment-label">Reason</div>
+                <div class="comment-value">${comment.reason || '—'}</div>
+              </div>
+            </div>
+          </div>
+          <div class="comment-label">Message</div>
+          <div class="comment-message">${comment.message || '—'}</div>
+          <div class="comment-label">Oracle's Response</div>
+          <div class="comment-response">${comment.response || '—'}</div>
+        `;
+        return div;
+      }
+
+      window.deleteComment = function(index) {
+        if (!confirm('Delete this response from the Oracle?')) return;
+        const comments = JSON.parse(localStorage.getItem('oracleComments')) || [];
+        comments.splice(index, 1);
+        localStorage.setItem('oracleComments', JSON.stringify(comments));
+        loadComments();
+      };
+
+      sendBtn.addEventListener('click', function() {
+        const fullName = fullNameInput.value.trim();
+        const reason = reasonInput.value.trim();
+        const message = messageInput.value.trim();
+        const response = responseInput.value.trim();
+
+        if (!fullName || !reason || !message || !response) {
+          alert('Please fill in all fields');
+          return;
+        }
+
+        const comments = JSON.parse(localStorage.getItem('oracleComments')) || [];
+        comments.push({ fullName, reason, message, response });
+        localStorage.setItem('oracleComments', JSON.stringify(comments));
+
+        fullNameInput.value = '';
+        reasonInput.value = '';
+        messageInput.value = '';
+        responseInput.value = '';
+
+        loadComments();
+      });
+
+      loadComments();
+    </script>
+  </body>
+</html>
