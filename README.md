@@ -10,6 +10,8 @@
 <p>- Probability Games</p>
 <p>- Consistent Support System</p>
 <p>- Mobile Friendly</p>
+<p>- Uses Local Storage in Complaint Form</p>
+<p>- Admin Exclusive Page that contains the problems or feedback of the users</p>
 
 <h2>Utilization of Form<h2>
 <p>The scrolls utilized by our professional clerics within the Den are designed for user quary and concerns. Information gathered through our scrolls will be delivered to an abyss where only the worthy are permitted to access. The worthy are tested with a riddle that demands a precise speech which will enable them to access all stored scrolls. The answer to the riddle may only be made known to those that the DMs deem worthy.</p>
