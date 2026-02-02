@@ -212,17 +212,28 @@ function checkEmpty(el) {
     }
 }
 
+// Save draft (used for auto-fill while editing)
 function saveFormToLocalStorage() {
     const form = document.querySelector('form');
     const formData = new FormData(form);
     const formObject = {};
-    
     for (let [key, value] of formData.entries()) {
         formObject[key] = value;
     }
-    
+    localStorage.setItem('formDraft', JSON.stringify(formObject));
+    console.log("Form draft saved to localStorage:", formObject);
+}
+
+// Save final submission (used by confirmSubmit and Abyss page)
+function saveSubmissionToLocalStorage() {
+    const form = document.querySelector('form');
+    const formData = new FormData(form);
+    const formObject = {};
+    for (let [key, value] of formData.entries()) {
+        formObject[key] = value;
+    }
     localStorage.setItem('formData', JSON.stringify(formObject));
-    console.log("Form data saved to localStorage:", formObject);
+    console.log("Form submission saved to localStorage:", formObject);
 }
 
 window.addEventListener('load', function() {
