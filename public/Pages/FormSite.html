@@ -236,12 +236,13 @@ function saveSubmissionToLocalStorage() {
     console.log("Form submission saved to localStorage:", formObject);
 }
 
+// Load draft data into the form (if any)
 window.addEventListener('load', function() {
-    const savedData = localStorage.getItem('formData');
+    const savedData = localStorage.getItem('formDraft');
     if (savedData) {
         const formObject = JSON.parse(savedData);
         const form = document.querySelector('form');
-        
+
         for (let [key, value] of Object.entries(formObject)) {
             const inputs = form.querySelectorAll('[name="' + key + '"]');
             if (!inputs || inputs.length === 0) continue;
