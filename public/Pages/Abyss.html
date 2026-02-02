@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Abyss</title>
+<link rel="stylesheet" href="Style/Abyss.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="header">
+		<h1>Stored Submission</h1>
+		<button class="back-btn" onclick="window.location.href='FormSite.html'">Back to Form</button>
+	</div>
+
+	<div class="card">
+		<div class="summary-row">
+			<div class="summary-item"><div class="label">Problem Rank</div><div class="value" id="problemRank">—</div></div>
+			<div class="summary-item"><div class="label">Preferred Speed</div><div class="value" id="preferredSpeed">—</div></div>
+			<div class="summary-item"><div class="label">Reason for Healing</div><div class="value" id="reason">—</div></div>
+		</div>
+
+		<div style="text-align:center; margin-top:12px;">
+			<button id="toggleDetails" class="btn">Show Details</button>
+		</div>
+
+		<div class="details" id="details">
+			<div class="row"><div class="label">Full Name</div><div class="value" id="fullName">—</div></div>
+			<div class="row"><div class="label">Email</div><div class="value" id="email">—</div></div>
+			<div class="row" style="border-bottom: none;"><div class="label">Message</div><div class="value" id="message">—</div></div>
+		</div>
+	</div>
+
+	<div class="note" id="noData" style="display:none;">No saved submission found in localStorage.</div>
+
+</div>
+
+<script>
+function renderFromLocalStorage() {
+	const raw = localStorage.getItem('formData');
+	const has = !!raw;
+	const noDataEl = document.getElementById('noData');
+	if (!has) {
+		noDataEl.style.display = 'block';
+		return;
+	}
+	noDataEl.style.display = 'none';
+	let data = {};
+	try { data = JSON.parse(raw) || {}; } catch(e) { data = {}; }
+
+	document.getElementById('problemRank').textContent = data.problemRank || '—';
+	document.getElementById('preferredSpeed').textContent = data.path || '—';
+	document.getElementById('reason').textContent = data.reason || '—';
+
+	document.getElementById('fullName').textContent = data.fullName || '—';
+	document.getElementById('email').textContent = data.email || '—';
+	document.getElementById('message').textContent = data.message || '—';
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+	renderFromLocalStorage();
+
+	const btn = document.getElementById('toggleDetails');
+	const details = document.getElementById('details');
+	btn.addEventListener('click', function(){
+		const shown = details.style.display === 'block';
+		details.style.display = shown ? 'none' : 'block';
+		btn.textContent = shown ? 'Show Details' : 'Hide Details';
+	});
+});
+</script>
+
+</body>
+</html>
+

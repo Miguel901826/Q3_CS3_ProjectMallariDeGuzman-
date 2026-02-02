@@ -1,0 +1,73 @@
+	body {
+		background-image: url('Backdrops/VortexDigitalBackground.jpg');
+		background-attachment: fixed;
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-color: black;
+		font-family: "Trebuchet MS", serif;
+		color: #f5e6c9;
+		margin: 0;
+		padding: 0;
+	}
+
+	.container {
+		max-width: 700px;
+		margin: 40px auto;
+		background: rgba(20, 15, 10, 0.9);
+		padding: 30px;
+		border-radius: 12px;
+		box-shadow: 0 0 20px grey;
+		border: 2px solid #381243;
+	}
+
+	.header { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+
+	.back-btn { padding:8px 12px; font-size:14px; border-radius:8px; border:none; cursor:pointer; background: #361c97; color:#140f0a; font-weight:bold; }
+	.back-btn:hover { background: #bb47e2;; }
+
+	h1 {
+		text-align: center;
+		color: #bb47e2;
+		letter-spacing: 2px;
+	}
+
+	.card {
+		background: rgba(10,10,10,0.6);
+		padding: 18px;
+		border-radius: 8px;
+		border: 1px solid #381243;
+		margin-bottom: 12px;
+	}
+
+	.row {
+		display: flex;
+		justify-content: space-between;
+		padding: 8px 0;
+		border-bottom: 1px dashed rgba(255,215,0,0.06);
+	}
+
+	.summary-row { display:flex; gap:12px; padding:6px 0; border-bottom: none; }
+	.summary-item { flex:1; text-align:center; padding:8px 6px; border-right: 1px dashed rgba(255,215,0,0.06); }
+	.summary-item:last-child { border-right: none; }
+	.summary-item .label { display:block; margin-bottom:6px; }
+
+	.label { color: #bb47e2;; font-weight: bold; }
+	.value { color: #f5e6c9; }
+
+	.details { display: none; margin-top: 12px; }
+
+	.btn {
+		padding: 10px 16px;
+		font-size: 16px;
+		border-radius: 8px;
+		border: none;
+		cursor: pointer;
+		background: #361c97;
+		color: #140f0a;
+		font-weight: bold;
+	}
+
+	.btn:hover { background: #bb47e2;; }
+
+	.note { text-align:center; color: #ddd; margin-top:10px; }
