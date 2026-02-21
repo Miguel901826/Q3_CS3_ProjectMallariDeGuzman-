@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D&D Character Sheet</title>
+<style>
+body {
+  background:#0f172a;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+  
+}
+h1 {
+  color:gold;
+  margin-bottom:10px;
+  
+}
+.box {
+  background:#1e293b;
+  padding:15px;
+  margin:10px auto;
+  max-width:450px;
+  border-radius:8px;
+  text-align:left;
+  
+}
+input, select, textarea {
+  width:90%;
+  max-width:280px;
+  padding:6px;
+  margin:5px 0;
+  border-radius:4px;
+  border:none;
+  
+}
+button {
+  padding:6px 12px;
+  margin:6px;
+  border-radius:6px;
+  border:none;
+  background:#7c2d12;
+  color:#fde68a;
+  cursor:pointer;
+  
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  
+}
+th,td {
+  border:1px solid #94a3b8;
+  padding:6px;
+  text-align:center;
+  
+}
+th {
+  background:#451a03;
+  
+}
+.skill-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:5px 0;
+  
+}
+</style>
+</head>
+<body>
+
+<h1>D&D Character Sheet</h1>
+
+<div class="box">
+<input id="name" placeholder="Character Name"><br>
+<select id="race"><option value="">Choose Race</option><option>Human</option><option>Elf</option><option>Dwarf</option><option>Halfling</option><option>Dragonborn</option></select><br>
+<select id="class"><option value="">Choose Class</option><option>Fighter</option><option>Wizard</option><option>Rogue</option><option>Cleric</option><option>Ranger</option></select><br>
+<input id="level" type="number" placeholder="Character Level">
+</div>
+
+<div class="box">
+<h3>1. Roll Ability Scores</h3>
+<button onclick="rollAll()">Roll 6 Scores</button>
+<p id="rolls"></p>
+</div>
+
+<div class="box">
+<h3>2. Assign Scores</h3>
+STR <select id="str" onchange="lockOptions()"></select><br>
+DEX <select id="dex" onchange="lockOptions()"></select><br>
+CON <select id="con" onchange="lockOptions()"></select><br>
+INT <select id="int" onchange="lockOptions()"></select><br>
+WIS <select id="wis" onchange="lockOptions()"></select><br>
+CHA <select id="cha" onchange="lockOptions()"></select>
+</div>
+
+<div class="box">
+<h3>3. HP and AC</h3>
+HP: <input id="hp" type="number"><br>
+AC: <input id="ac" type="number">
+</div>
+
+<div class="box">
+<h3>4. Skills (0-10)</h3>
+<div id="skillsContainer"></div>
+</div>
+
+<div class="box">
+<h3>5. Equipment</h3>
+<textarea id="gear" rows="3" placeholder="Example: Sword, Shield"></textarea>
+</div>
+
+<div class="box">
+<button onclick="makeSheet()">Make Sheet</button>
+<button onclick="saveChar()">Save</button>
+<button onclick="loadChar()">Load</button>
+<button onclick="resetAll()">Reset</button>
+</div>
+
+<div id="sheet"></div>
+
+<script>
+let rolls=[]
+let skillsList=[
+"Acrobatics","Animal Handling","Arcana","Athletics","Deception","History","Insight",
+"Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion",
+"Religion","Sleight of Hand","Stealth","Survival"]
+
+function rollOne(){
+  let dice=[]
+  for(let i=0;i<4;i++) dice.push(Math.floor(Math.random()*6)+1)
+  dice.sort((a,b)=>a-b)
+  dice.shift()
+  return dice[0]+dice[1]+dice[2]
+}
+
+function rollAll(){
+  rolls=[]
+  for(let i=0;i<6;i++) rolls.push(rollOne())
+  document.getElementById("rolls").innerText="Rolled: "+rolls.join(", ")
+  fillOptions()
+}
+
+function fillOptions(){
+  let ids=["str","dex","con","int","wis","cha"]
+  ids.forEach(id=>{
+    let sel=document.getElementById(id)
+    sel.innerHTML="<option value=''>Choose</option>"
+    rolls.forEach((r,i)=>{
+      let opt=document.createElement("option")
+      opt.value=i
+      opt.innerText=r
+      sel.appendChild(opt)
+    })
+  })
+  lockOptions()
+}
+
+function lockOptions(){
+  let used=[]
+  let ids=["str","dex","con","int","wis","cha"]
+  ids.forEach(id=>{
+    let val=document.getElementById(id).value
+    if(val!=="") used.push(val)
+  })
+  ids.forEach(id=>{
+    let sel=document.getElementById(id)
+    for(let i=1;i<sel.options.length;i++){
+      sel.options[i].disabled=used.includes(sel.options[i].value)&&sel.value!==sel.options[i].value
+    }
+  })
+}
+
+function makeSkillsDropdowns(){
+  let container=document.getElementById("skillsContainer")
+  container.innerHTML=""
+  skillsList.forEach(skill=>{
+    let div=document.createElement("div")
+    div.className="skill-row"
+    let sel=document.createElement("select")
+    sel.className="skillNum"
+    for(let i=0;i<=10;i++){
+      let opt=document.createElement("option")
+      opt.value=i
+      opt.innerText=i
+      sel.appendChild(opt)
+    }
+    div.innerHTML=`<span>${skill}</span>`
+    div.appendChild(sel)
+    container.appendChild(div)
+  })
+}
+
+makeSkillsDropdowns()
+
+function makeSheet(){
+  let name=document.getElementById("name").value||"Unnamed Hero"
+  let race=document.getElementById("race").value||"Unknown"
+  let cls=document.getElementById("class").value||"Adventurer"
+  let level=document.getElementById("level").value||"?"
+  let getStat=id=>{
+    let v=document.getElementById(id).value
+    return v===""?"?":rolls[parseInt(v)]
+  }
+  let html="<h2>"+name+" the "+race+" "+cls+" (Level "+level+")</h2>"
+  html+="<p>HP: "+(document.getElementById("hp").value||"?")+" | AC: "+(document.getElementById("ac").value||"?")+"</p>"
+  html+="<table><tr><th>Ability</th><th>Score</th></tr>"
+  html+="<tr><td>STR</td><td>"+getStat("str")+"</td></tr>"
+  html+="<tr><td>DEX</td><td>"+getStat("dex")+"</td></tr>"
+  html+="<tr><td>CON</td><td>"+getStat("con")+"</td></tr>"
+  html+="<tr><td>INT</td><td>"+getStat("int")+"</td></tr>"
+  html+="<tr><td>WIS</td><td>"+getStat("wis")+"</td></tr>"
+  html+="<tr><td>CHA</td><td>"+getStat("cha")+"</td></tr></table>"
+  html+="<h3>Skills</h3><ul>"
+  document.querySelectorAll(".skillNum").forEach((sel,i)=>{
+    if(sel.value!=="0") html+=`<li>${skillsList[i]}: ${sel.value}</li>`
+  })
+  html+="</ul>"
+  html+="<h3>Equipment</h3><p>"+(document.getElementById("gear").value||"None")+"</p>"
+  document.getElementById("sheet").innerHTML=html
+}
+
+function saveChar(){
+  let skillVals=[]
+  document.querySelectorAll(".skillNum").forEach(s=>skillVals.push(s.value))
+  let data={
+    name: document.getElementById("name").value,
+    race: document.getElementById("race").value,
+    cls: document.getElementById("class").value,
+    level: document.getElementById("level").value,
+    rolls,
+    stats:{
+      str: document.getElementById("str").value,
+      dex: document.getElementById("dex").value,
+      con: document.getElementById("con").value,
+      int: document.getElementById("int").value,
+      wis: document.getElementById("wis").value,
+      cha: document.getElementById("cha").value
+    },
+    hp: document.getElementById("hp").value,
+    ac: document.getElementById("ac").value,
+    skills: skillVals,
+    gear: document.getElementById("gear").value
+  }
+  localStorage.setItem("myCharacter",JSON.stringify(data))
+  alert("Saved!")
+}
+
+function loadChar(){
+  let saved=localStorage.getItem("myCharacter")
+  if(!saved) return alert("No save found")
+  let data=JSON.parse(saved)
+  document.getElementById("name").value=data.name
+  document.getElementById("race").value=data.race
+  document.getElementById("class").value=data.cls
+  document.getElementById("level").value=data.level
+  rolls=data.rolls||[]
+  fillOptions()
+  document.getElementById("str").value=data.stats.str
+  document.getElementById("dex").value=data.stats.dex
+  document.getElementById("con").value=data.stats.con
+  document.getElementById("int").value=data.stats.int
+  document.getElementById("wis").value=data.stats.wis
+  document.getElementById("cha").value=data.stats.cha
+  document.getElementById("hp").value=data.hp
+  document.getElementById("ac").value=data.ac
+  document.getElementById("gear").value=data.gear
+  document.querySelectorAll(".skillNum").forEach((sel,i)=>sel.value=data.skills[i]||"0")
+  makeSheet()
+}
+
+function resetAll(){location.reload()}
+</script>
+
+</body>
+</html>

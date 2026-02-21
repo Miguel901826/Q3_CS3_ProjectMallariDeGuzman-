@@ -6,38 +6,29 @@ body {
     background-size: 80%;
     background-color: black;
 }
-.container {
-    position: relative;
-    width: 50%;
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+    padding-top: 6vh;
+}
 
+.gallery a {
+    display: inline-block;
 }
-    
-.container img {
-    margin-top: 10px;
-    width: 30%;
-    height: 30%;
-    margin-top: 60%;
-    margin-left: 35%;
-}
-    
-.container .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: transparent;
-    color: transparent;
-    font-size: 16px;
-    padding: 12px 24px;
-    padding-top: 20px;
-    width: 30%;
-    height: 30%;
-    border: none;
+
+.gallery img {
+    width: 220px;
+    height: auto;
+    display: block;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 30%;
+    border-radius: 8px;
+    transition: transform 150ms ease, box-shadow 150ms ease;
 }
-    
-.container .btn:hover {
-    background-color: transparent;
+
+.gallery img:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
