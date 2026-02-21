@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dungeon Puzzle</title>
+<style>
+  body {
+    background: radial-gradient(circle at top, #1f2933, #020617);
+    color: #f8fafc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #facc15;
+    text-shadow: 0 0 6px #78350f;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 260px;
+    margin: 20px auto;
+  }
+
+  .tile {
+    background: linear-gradient(#7c2d12, #451a03);
+    border: 2px solid #facc15;
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .empty {
+    background: transparent;
+    border: 2px dashed #475569;
+    cursor: default;
+  }
+
+  .info {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #7c2d12;
+    color: #fde68a;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #facc15;
+  }
+</style>
+</head>
+<body>
+
+<h1>🐉 Dungeon Tile Puzzle</h1>
+<p id="msg">Arrange the runes to escape the dungeon!</p>
+
+<div class="info">
+  Moves: <span id="moves">0</span> |
+  Time: <span id="time">0.0</span>s |
+  Best: <span id="best">--</span>s
+</div>
+
+<div class="grid" id="grid"></div>
+
+<button onclick="resetGame()">Reset Dungeon</button>
+
+<script>
+let tiles = [];
+let moves = 0;
+let startTime = 0;
+let timer = null;
+
+const grid = document.getElementById("grid");
+const movesText = document.getElementById("moves");
+const timeText = document.getElementById("time");
+const bestText = document.getElementById("best");
+const msg = document.getElementById("msg");
+
+function startGame() {
+  do {
+    tiles = [1,2,3,4,5,6,7,8,""];
+    tiles.sort(() => Math.random() - 0.5);
+  } while (!canSolve(tiles) || checkSolved());
+
+  moves = 0;
+  movesText.innerText = moves;
+  msg.innerText = "Arrange the runes to escape the dungeon!";
+
+  startTime = Date.now();
+  clearInterval(timer);
+  timer = setInterval(updateTime, 100);
+
+  drawGrid();
+  loadBestTime();
+}
+
+function drawGrid() {
+  grid.innerHTML = "";
+  for (let i = 0; i < tiles.length; i++) {
+    let box = document.createElement("div");
+    box.className = "tile";
+    box.innerText = tiles[i];
+
+    if (tiles[i] === "") {
+      box.className += " empty";
+    }
+
+    box.onclick = function () {
+      moveTile(i);
+    };
+
+    grid.appendChild(box);
+  }
+}
+
+function moveTile(i) {
+  let empty = tiles.indexOf("");
+  let row = Math.floor(empty / 3);
+  let col = empty % 3;
+
+  let canMove = false;
+
+  if (i === empty - 1 && col > 0) canMove = true;
+  if (i === empty + 1 && col < 2) canMove = true;
+  if (i === empty - 3 && row > 0) canMove = true;
+  if (i === empty + 3 && row < 2) canMove = true;
+
+  if (canMove) {
+    let temp = tiles[i];
+    tiles[i] = tiles[empty];
+    tiles[empty] = temp;
+
+    moves++;
+    movesText.innerText = moves;
+
+    drawGrid();
+    checkWin();
+  }
+}
+
+function checkWin() {
+  if (tiles.join("") === "12345678") {
+    clearInterval(timer);
+    msg.innerText = "You escaped the dungeon! 🗝️";
+
+    let time = ((Date.now() - startTime) / 1000).toFixed(1);
+    let best = localStorage.getItem("bestTime");
+
+    if (best === null || time < best) {
+      localStorage.setItem("bestTime", time);
+      bestText.innerText = time;
+    }
+  }
+}
+
+function updateTime() {
+  let t = ((Date.now() - startTime) / 1000).toFixed(1);
+  timeText.innerText = t;
+}
+
+function checkSolved() {
+  return tiles.join("") === "12345678";
+}
+
+function canSolve(arr) {
+  let numbers = arr.filter(x => x !== "");
+  let count = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      if (numbers[i] > numbers[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count % 2 === 0;
+}
+
+function loadBestTime() {
+  let best = localStorage.getItem("bestTime");
+  bestText.innerText = best ? best : "--";
+}
+
+function resetGame() {
+  startGame();
+}
+
+startGame();
+</script>
+
+</body>
+</html>

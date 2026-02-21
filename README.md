@@ -23,10 +23,10 @@ The 2nd webpage, which we will call "The Abyss" will where thy concerns or probl
 The Final Website, which we will call "The Oracle" is a website where the adventurers are able to receive and view the guidance and help the creators have provided and created. It will show in detail what was wrong, why it happened, and how it was fixed if you might need it. </p>
 
 <h2>Finalization of Project</h2>
-<p>- All 4 games complete and integrated into website (1/4)</p>
-<p>- Completely Mobile Friendly (Incomplete)</p>
-<p>- Abyss Multi Complaint and Passcode Features (Incomplete)</p>
-<p>- Character Sheet Creation Feature (Coming Soon)</p>
+<p>- All 4 games complete and integrated into website (4/4)</p>
+<p>- Complete All Dead Ends (Complete)</p>
+<p>- Abyss Complaint and Response Features (Complete)</p>
+<p>- Character Sheet Creation Feature (Incomplete)</p>
 
 <a href="https://miguel901826.github.io/Q3_CS3_ProjectMallariDeGuzman-/public/Pages/index.html" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
   Click to Proceed

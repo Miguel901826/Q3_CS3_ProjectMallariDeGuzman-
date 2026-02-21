@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rune Match</title>
+<style>
+  body {
+    background: linear-gradient(#0f172a, #1e293b);
+    color: #f8fafc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+  }
+  h1 { margin-bottom: 5px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 320px;
+    margin: 15px auto;
+  }
+  .card {
+    background: #7c2d12;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Elemental Rune Match</h1>
+<p id="status">Match all the elemental runes!</p>
+<div class="grid" id="grid"></div>
+<button onclick="resetGame()">Reset</button>
+
+<script>
+let symbols, first, lock, matched;
+
+function start() {
+  symbols = ["🔥","🔥","❄️","❄️","🌱","🌱","༄","༄"];
+  symbols.sort(() => Math.random() - 0.5);
+  first = null;
+  lock = false;
+  matched = 0;
+  grid.innerHTML = "";
+  document.getElementById("status").innerText = "Match all the elemental runes!";
+
+  symbols.forEach(sym => {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerText = "?";
+    card.onclick = () => flip(card, sym);
+    grid.appendChild(card);
+  });
+}
+
+const grid = document.getElementById("grid");
+
+function flip(card, sym) {
+  if (lock || card.innerText !== "?") return;
+
+  card.innerText = sym;
+
+  if (!first) {
+    first = { card, sym };
+  } else {
+    if (first.sym === sym) {
+      matched += 2;
+      first = null;
+      if (matched === symbols.length) {
+        document.getElementById("status").innerText = "You matched them all! Yipee!";
+      }
+    } else {
+      lock = true;
+      setTimeout(() => {
+        card.innerText = "?";
+        first.card.innerText = "?";
+        first = null;
+        lock = false;
+      }, 700);
+    }
+  }
+}
+
+function resetGame() {
+  start();
+}
+
+start();
+</script>
+</body>
+</html>
