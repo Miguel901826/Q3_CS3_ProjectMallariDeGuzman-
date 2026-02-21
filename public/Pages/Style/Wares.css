@@ -6,6 +6,8 @@ body {
     background-size: 100%;
     background-color: black;
     overflow-y: scroll;
+    position: relative;
+    min-height: 100vh;
 }
 img {
     display: block;          
@@ -39,15 +41,15 @@ img {
 }
 
 #Map {
+    position: absolute;
+    left: 48.2%;
+    top: 104%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
     height: 120px;
-    width: 350px;
-    margin-left: 48.5%;
-    margin-top: 15%;
+    width: 360px;
 }
 
 .container {
@@ -61,45 +63,46 @@ img {
   justify-content: space-between;
 }
 #Dice {
+    position: absolute;
+    left: 16.8%;
+    top: 55%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
     height: 70px;
     width: 220px;
-    margin-left: 17%;
-    margin-top: 22%;
 }
 #Book {
+    position: absolute;
+    left: 81.5%;
+    top: 59%;
     transform: translate(-50%, -50%); 
     background-color: transparent;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
     height: 90px;
     width: 280px;
-    margin-top: 24%; 
 }
 #Sheet {
+    position: absolute;
+    left: 81.5%;
+    top: 121%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
     height: 70px;
-    width: 280px;
-    margin-left: 15%;
-    margin-bottom: 60%;
+    width: 260px;
 }
 #Statues {
+    position: absolute;
+    left: 17%;
+    top: 119%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
-    height: 80px;
-    width: 220px;
-    margin-left: 252px;
-    margin-bottom: 100px;
+    height: 90px;
+    width: 265px;
 }

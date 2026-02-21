@@ -26,7 +26,7 @@ The Final Website, which we will call "The Oracle" is a website where the advent
 <p>- All 4 games complete and integrated into website (3/3)</p>
 <p>- Complete All Dead Ends (Complete)</p>
 <p>- Abyss Complaint and Response Features (Complete)</p>
-<p>- Character Sheet Creation Feature (Incomplete)</p>
+<p>- Character Sheet Creation Feature (Complete)</p>
 
 <a href="https://miguel901826.github.io/Q3_CS3_ProjectMallariDeGuzman-/public/Pages/index.html" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
   Click to Proceed
