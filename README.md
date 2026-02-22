@@ -23,7 +23,7 @@ The 2nd webpage, which we will call "The Abyss" will where thy concerns or probl
 The Final Website, which we will call "The Oracle" is a website where the adventurers are able to receive and view the guidance and help the creators have provided and created. It will show in detail what was wrong, why it happened, and how it was fixed if you might need it. </p>
 
 <h2>Finalization of Project</h2>
-<p>- All 4 games complete and integrated into website (3/3)</p>
+<p>- All 3 games and Calculator complete and integrated into website (4/4)</p>
 <p>- Complete All Dead Ends (Complete)</p>
 <p>- Abyss Complaint and Response Features (Complete)</p>
 <p>- Character Sheet Creation Feature (Complete)</p>
