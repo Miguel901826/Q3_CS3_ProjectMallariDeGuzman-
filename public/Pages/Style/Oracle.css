@@ -41,14 +41,14 @@ body {
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    background: #dac474;
+    background: #b87f06;
     color: #f5e6c9;
     font-weight: bold;
     z-index: 999;
 }
 
 .back-btn:hover {
-    background: #ffcd16;
+    background: #b87f06;
 }
 
       .comments-container {
@@ -181,14 +181,14 @@ body {
         border-radius: 8px;
         border: none;
         cursor: pointer;
-        background: #dac474;
+        background: #9c6c04;
         color: #f5e6c9;
         font-weight: bold;
         width: 100%;
       }
 
       .send-btn:hover {
-        background: #ffcd16;
+        background: #b68e00;
       }
 
       .no-comments {
