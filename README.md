@@ -1,5 +1,13 @@
 <h1>Den of Probability</h1>
 <h3>Developed by: Joshua Mallari & Luis de Guzman</h3>
+<h4>Project Proposal Q4</h4>
+<p>1. Den of Probability</p>
+<p>2. The Den of Probability provides an easier and more convenient Dungeons and Dragons experience with an addition of games so that you can have fun outside of the campaign. It holds a variety of features that lean towards the needs of the DnD fanbase.</p>
+<p>3. This project is for people who are bored and want to try something new, especially directed to DND enthusiasts, casuals, and newcomers to help ease the experience. DND players deal with several inconveniences during a session. Problems such as having too many sites open just to start a single campaign. This is especially catered to DND Dungeon Masters as they often deal with the majority of technicalities of starting and proceeding with a campaign. This project is dedicated to the DND players and dungeon masters who work hard looking to setup campaigns and stories for their fellow players.</p>
+<p>4. They will love this project because of the three main features. First, the character creation sheet which helps them keep track of character details. Second, the games which allow a fun way to settle disputes and decisions beyond dice rolls. Lastly we have redirects to reliable sources of pieces and items often needed for a DND campaign.</p>
+<p>5. This project features a shop where you can buy accessories for your DND campaigns, games for you to play and cure boredom (DND THEMED), calculator to help with damage, roll and probability calculation, message board to voice complaints, questions and concerns and a character creation sheet that helps you set-up the basics in a character. We do NOT have a dice roller mechanic or a dungeon creator sheet.
+<p>6. Submitted by Luis Miguel de Guzman & Joshua Paul Mallari on March 18, 2026 to Sir Roy in partial fulfillment of the requirements in CS3 of DOST-PSHS-MC</p>
+
 <h2>Short Description</h2>
 <p>The Den of Probability provides an easier and more convenient Dungeons and Dragons experience with an addition of games so that you can have fun outside of the campaign. It holds a variety of features that lean towards the needs of the DnD fanbase.</p>
 
