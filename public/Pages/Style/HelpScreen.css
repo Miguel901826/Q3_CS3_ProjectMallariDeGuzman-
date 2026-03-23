@@ -32,21 +32,33 @@ img {
     text-decoration: none; 
 }
 
-
 .hotbar li a:hover {
     background-color: #3f0505;
 }
 
 #AU {
-    font-size: large;
-    font-family: 'Times New Roman', Times, serif;
-    transform: translate(-50%, -50%);
-    background-color: rgb(140, 184, 232);
-    border: black;
+    background-image: url('Backdrops/SB.png');
+    background-color: transparent; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 200px;
+    border: none;
+    color: black; 
+    font-size: 12px;
+    text-align: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     cursor: pointer;
-    border-radius: 5px;
-    height: 350px;
-    width: 400px;
-    margin-left: 20%;
-    margin-top: 20%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+#AU:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    transition: 0.2s;
 }
