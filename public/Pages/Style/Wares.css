@@ -43,11 +43,10 @@ img {
 #Map {
     position: absolute;
     left: 48.2%;
-    top: 104%;
+    top: 96%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     cursor: pointer;
-    border-radius: 5px;
     height: 120px;
     width: 360px;
 }
@@ -65,44 +64,40 @@ img {
 #Dice {
     position: absolute;
     left: 16.8%;
-    top: 55%;
+    top: 50%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     cursor: pointer;
-    border-radius: 5px;
     height: 70px;
     width: 220px;
 }
 #Book {
     position: absolute;
     left: 81.5%;
-    top: 59%;
+    top: 54%;
     transform: translate(-50%, -50%); 
     background-color: transparent;
     cursor: pointer;
-    border-radius: 5px;
     height: 90px;
     width: 280px;
 }
 #Sheet {
     position: absolute;
     left: 81.5%;
-    top: 121%;
+    top: 112%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     cursor: pointer;
-    border-radius: 5px;
     height: 70px;
     width: 260px;
 }
 #Statues {
     position: absolute;
     left: 17%;
-    top: 119%;
+    top: 109%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     cursor: pointer;
-    border-radius: 5px;
     height: 90px;
     width: 265px;
 }
