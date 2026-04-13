@@ -42,7 +42,6 @@ img {
 
 #Map {
     position: absolute;
-    border: none;
     left: 48.2%;
     top: 96%;
     transform: translate(-50%, -50%);

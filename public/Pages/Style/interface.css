@@ -1,6 +1,6 @@
 body {
     background-image: url('Backdrops/IntroScreen.png');
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-position: top center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -29,4 +29,11 @@ body {
 
 .hotbar li a:hover {
     background-color: #3f0505;
+}
+img {
+    display: block;     
+    margin-top: 20%;     
+    margin-left: 18%;
+    width: 1000px;    
+    height: 1700px; 
 }
