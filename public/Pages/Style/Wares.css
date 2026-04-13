@@ -42,8 +42,8 @@ img {
 
 #Map {
     position: absolute;
-    left: 48.2%;
-    top: 96%;
+    right: 0%;
+    top: 0%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     cursor: pointer;
