@@ -38,10 +38,11 @@ img {
 
 #AU {
     background-image: url('Backdrops/SB.png');
-    background-color: transparent; 
+    background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    text-size-adjust: 100px;
     width: 300px;
     height: 200px;
     border: none;
