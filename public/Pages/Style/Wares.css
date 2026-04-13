@@ -42,6 +42,7 @@ img {
 
 #Map {
     position: absolute;
+    border: none;
     left: 48.2%;
     top: 96%;
     transform: translate(-50%, -50%);
@@ -63,6 +64,7 @@ img {
 }
 #Dice {
     position: absolute;
+    border: none;
     left: 16.8%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -73,6 +75,7 @@ img {
 }
 #Book {
     position: absolute;
+    border: none;
     left: 81.5%;
     top: 54%;
     transform: translate(-50%, -50%); 
@@ -83,6 +86,7 @@ img {
 }
 #Sheet {
     position: absolute;
+    border: none;
     left: 81.5%;
     top: 112%;
     transform: translate(-50%, -50%);
@@ -93,6 +97,7 @@ img {
 }
 #Statues {
     position: absolute;
+    border: none;
     left: 17%;
     top: 109%;
     transform: translate(-50%, -50%);
